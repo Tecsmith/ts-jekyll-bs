@@ -1,0 +1,68 @@
+---
+---
+
+{%- comment -%}
+# If you need to create a `.htaccess` file dynamically, then rename or copy this file to `.htaccess`.
+# The content of this file is dynamically generated from the `_data/htaccess.yml` data file.
+{%- endcomment -%}
+
+# turn off directory browsing
+IndexIgnore *
+Options All -Indexes
+
+# show custom error pages for these HTTP statuses
+ErrorDocument 404 /404.html
+
+# ----- Begin redirection headres -----
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # static pages
+  RewriteRule ^contact/?$ /about/contact.html [R=308,L]
+
+{%- for item in site.data.htaccess.redirect %}
+  RewriteRule ^{{ item.from  }}$ {{ item.to | default: '\' }} [R={{ item.code | default: '302' }},L]
+{%- endfor %}
+
+  # Rewrite only if the requested file does not exist
+  RewriteCond %{REQUEST_FILENAME} !-f
+  # Rewrite only if the requested directory does not exist
+  RewriteCond %{REQUEST_FILENAME} !-d
+  # Make .htm files appear as .html
+  # RewriteRule ^(.+)\.htm$ $1.html [NC,L]
+  # Example: Make .php files appear as .html
+  RewriteRule ^(.+)\.php$ $1.html [NC,L]
+
+  # pass anything ending in HTML - prevents infinite redirect if the following rules are buggy
+  RewriteRule ^(.*).html$ - [L]
+</IfModule>
+
+# ----- Begin GZIP headers -----
+<ifmodule mod_deflate.c>
+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
+{%- for item in site.data.htaccess.compress %}  
+  AddOutputFilterByType DEFLATE {{ item }}
+{%- endfor %}
+
+  # Remove browser bugs (only needed for really old browsers)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+</ifmodule>
+
+# ----- Begin Expire (browser caching) headers -----
+<IfModule mod_expires.c>  
+  # Turn on the module.
+  ExpiresActive on
+  # Set the default expiry times.
+  ExpiresDefault "access plus 2 days"
+{%- for item in site.data.htaccess.cache %}
+  ExpiresByType {{ item.type }} "access plus {{ item.keep }}"
+{%- endfor %}
+</IfModule>  
+
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET"
+Header set Access-Control-Allow-Headers "Content-Type"

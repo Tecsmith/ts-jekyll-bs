@@ -1,0 +1,75 @@
+{%- comment -%}
+<!--
+  ----------------------------------------------------------------------------
+  This will generate a footer block based on the data in the
+  `_data/footer.yml` file.
+  ----------------------------------------------------------------------------
+-->
+{%- endcomment -%}
+{%- if site.data.globals.copyright -%}
+  {%- assign copyright_year = site.data.globals.copyright -%}
+{%- else -%}
+  {%- assign copyright_year = 2010 -%}
+{%- endif -%}
+
+{%- for item in site.data.footer.menu -%}
+{%- endfor -%}
+{%- comment -%} <!-- collection.size is only set AFTER it's iterated --> {%- endcomment -%}
+{%- assign loop_length = site.data.footer.menu.size -%}
+{%- case loop_length -%}
+  {%- when 1 -%}
+    {%- assign f_class_lf = "col-12 col-md-8 col-md" -%}
+    {%- assign f_class_rt = "col-12 col-md-4 col-md" -%}
+  {%- when 2 -%}
+    {%- assign f_class_lf = "col-12 col-md-6" -%}
+    {%- assign f_class_rt = "col-12 col-md-3" -%}
+  {%- when 3 -%}
+    {%- assign f_class_lf = "col-12 col-md-3 col-md" -%}
+    {%- assign f_class_rt = "col-12 col-md-3 col-md" -%}
+  {%- else -%}
+    {%- assign f_class_lf = "col-12" -%}
+    {%- assign f_class_rt = "col-12 bg-danger text-warning" -%}
+{%- endcase -%}
+
+<footer class="{{ site.data.globals.footerclass }}" id="footer">
+  <div class="container footer">
+    <div class="row py-2 my-md-4 pt-md-3">
+      <div class="{{ f_class_lf }}">
+        {% for static_file in site.static_files %}{% if static_file.path == '/favicon.svg' %}
+        <a href="{{ '/' | absolute_url}}"><img class="mb-2" src="{{ '/favicon.svg' | ubsolute_url | append: debugTag }}" alt="" width="48" height="48"></a>
+        {% endif %}{% endfor %}
+        <small class="d-block text-muted">&copy; <span id="copyright">{{ copyright_year }}</span> {% if site.data.globals.brand.name %}<span class="brand">{{ site.data.globals.brand.name }}</span>{% endif %}
+        {% if site.data.globals.brand.abn %}<br>ABN: <span class="abn middot-spaces">{{ site.data.globals.brand.abn }}</span>{% endif %}</small>
+        
+        <br><button type="button" class="btn btn-info bg-brand-1 border-brand-1 shadow" id="btn-to-top"><i class="fas fa-arrow-up"></i></button>
+      </div>
+
+      {% for item in site.data.footer.menu %}
+
+        <div class="{{ f_class_rt }}">
+          <h5>{% if item.url %}<a href="{{ item.url | absolute_path }}" style="color:inherit">{% endif %}{{ item.title }}{% if item.url %}</a>{% endif %}</h5>
+          <ul class="list-unstyled text-small">
+            {% for sub_item in item.items %}
+            <li class="{% if forloop.first %} first{% endif%}{% if forloop.last %} last{% endif %}{% if forloop.length == 1 %} only{% endif %}">
+              {% if sub_item.url %}
+              <a class="text-muted {% if sub_item.class != nil %}{{ sub_item.class }}{% endif %}" href="{{ sub_item.url | absolute_url | default: '#' }}">
+              {% else %}
+              <span class="text-muted {% if sub_item.class != nil %}{{ sub_item.class }}{% endif %} nope">
+              {% endif %}
+                {% if sub_item.fa != nil %}
+                  <i class="fas fa-{{ sub_item.fa }} fa-fw"></i> &nbsp;
+                {% elsif sub_item.svg != nil %}
+                  <svg class="fa fa-fw"><use xlink:href="#{{ sub_item.svg }}" /></svg> &nbsp;
+                {% elsif sub_item.fasvg != nil %}
+                  <img src="{{ '/assets/img/fa/' | absolute_path | append: sub_item.fasvg | append: '.svg' }}" height="16">
+                {% endif %}
+                {{ sub_item.title }}
+              {% if sub_item.url %}</a>{% else %}</span>{% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</footer>

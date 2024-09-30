@@ -1,0 +1,64 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Made with <3 by Vino Rodrigues, https://github.com/vinorodrigues -->
+
+  <title>{% if page.title %}{{ site.title }} - {{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+{% include seo-metadata.html %}
+
+  {%- assign darkmode = site.data.globals.darkmode -%}
+  {%- if darkmode == blank -%}
+    {%- assign darkmode = true -%}
+  {%- endif -%}
+  {%- assign _temp = darkmode | downcase -%}
+  {%- if _temp == "force" -%}
+    {%- assign darkmode_switch = 2 -%}
+  {%- else -%}
+    {%- if darkmode == true -%}
+      {%- assign darkmode_switch = 1 -%}
+    {%- else -%}
+      {%- assign darkmode_switch = 0 -%}
+    {%- endif -%}
+  {%- endif-%}
+  {% case darkmode_switch %}
+    {% when 1 %}
+  <meta name="color-scheme" content="light dark">
+  <!-- Bootstrap-Dark (4), https://github.com/vinorodrigues/bootstrap-dark -->
+  <link href="https://cdn.jsdelivr.net/gh/vinorodrigues/bootstrap-dark@0.6.1/dist/bootstrap-dark.min.css" rel="stylesheet" media="all" integrity="sha384-GrGBtUiVQd0B0YKF+fKYa7+UY5kc/9N8AvsG1+zcHqslLuITk8fKygUaYv6TnGQ9" crossorigin="anonymous">
+    {% when 2 %}
+  <meta name="color-scheme" content="dark">
+  <!-- Bootstrap-Dark (4), https://github.com/vinorodrigues/bootstrap-dark -->
+  <link href="https://cdn.jsdelivr.net/gh/vinorodrigues/bootstrap-dark@0.6.1/dist/bootstrap-night.min.css" rel="stylesheet" media="all" integrity="sha384-ot7xT4oMaQskWl5bDTml5cnSaTEESdBQNiLcRbijNOw8JNI1PXCXsW+pVdWmKQn0" crossorigin="anonymous">
+    {% else %}
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" media="all" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  {% endcase %}
+
+  <!-- Font Awesome, https://fontawesome.com/v5/icons/ -->
+  {% if true %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" media="all" integrity="sha384-PPIZEGYM1v8zp5Py7UjFb79S58UeqCL9pYVnVPURKEqvioPROaVAJKKLzvH2rDnI" crossorigin="anonymous">
+  {% else %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" media="all" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  {% endif %}
+
+  <!-- This Site -->
+  <link rel="stylesheet" href="{{'/assets/css/style.css' | absolute_url | append: debugTag}}">
+  <link rel="stylesheet" href="{{'/assets/css/custom-style.css' | absolute_url | append: debugTag }}">
+{% for extracssfile in page.extra_css %}
+  <link rel="stylesheet" href="{{ '/assets/css/' | absolute_url }}{{ extracssfile | append: debugTag }}">
+{% endfor %}
+{% for extracsscontent in page.inline_css %}
+  <style>
+{{ extracsscontent }}    
+  </style>
+{% endfor %}
+{% for extracssfile in layout.extra_css %}
+  <link rel="stylesheet" href="{{ '/assets/css/' | absolute_url }}{{ extracssfile | append: debugTag }}">
+{% endfor %}
+{% include custom-css.html %}
+{% include favicon-metadata.html %}
+{% include custom-head.html %}
+</head>

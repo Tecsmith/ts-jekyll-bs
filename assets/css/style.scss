@@ -1,0 +1,405 @@
+---
+---
+
+@import "variables";  // partially from Bootstrap 4
+@import "breakpoints";  // from Bootstrap 4
+@import "color-scheme";  // from Bootstrap-Dark
+
+@charset "utf-8";
+
+:root {
+  --brand-color-1: var(--blue);
+  --brand-color-2: var(--green);
+  --brand-color-3: var(--red);
+
+  // from https://iamkate.com/data/12-bit-rainbow/
+  --rainbow-color-1: #817;
+  --rainbow-color-2: #a35;
+  --rainbow-color-3: #c66;
+  --rainbow-color-4: #e94;
+  --rainbow-color-5: #ed0;
+  --rainbow-color-6: #9d5;
+  --rainbow-color-7: #4d8;
+  --rainbow-color-8: #2cb;
+  --rainbow-color-9: #0bc;
+  --rainbow-color-10: #09c;
+  --rainbow-color-11: #36b;
+  --rainbow-color-12: #639;
+  --greyscale-color-1: #404040;
+  --greyscale-color-2: #5c5c5c;
+  --greyscale-color-3: #848484;
+  --greyscale-color-4: #a9a9a9;
+  --greyscale-color-5: #c9c9c9;
+  --greyscale-color-6: #b9b9b9;
+  --greyscale-color-7: #a6a6a6;
+  --greyscale-color-8: #979797;
+  --greyscale-color-9: #858585;
+  --greyscale-color-10: #717171;
+  --greyscale-color-11: #606060;
+  --greyscale-color-12: #4e4e4e;
+
+  // override BS, but keep them as fallback defaults
+  --blue: var(--rainbow-color-11, #{$blue});
+  --indigo: var(--rainbow-color-12, #{$indigo});
+  --purple: var(--rainbow-color-1, #{$purple});
+  --pink: var(--rainbow-color-3, #{$pink});
+  --red: var(--rainbow-color-2, #{$red});
+  --orange: var(--rainbow-color-4, #{$orange});
+  --yellow: var(--rainbow-color-5, #{$yellow});
+  --green: var(--rainbow-color-7, #{$green});
+  --teal: var(--rainbow-color-8, #{$teal});
+  --cyan: var(--rainbow-color-9, #{$cyan});
+  --white: #{$white};
+  --gray: var(--greyscale-color-12, #{$gray-600});
+  --gray-dark: var(--greyscale-color-1, #{$gray-800});
+  --primary: var(--rainbow-color-11, #{$primary});
+  --secondary: var(--greyscale-color-12, #{$secondary});
+  --success: var(--rainbow-color-8, #{$success});
+  --info: var(--rainbow-color-10, #{$info});
+  --warning: var(--rainbow-color-4, #{$warning});
+  --danger: var(--rainbow-color-2, #{$danger});
+  --light: var(--greyscale-color-4, #{$light});
+  --dark: var(--greyscale-color-10, #{$dark});
+}
+
+// -- Brand helpers ---
+
+.bg-brand-1 { background-color: var(--brand-color-1); }
+.bg-brand-2 { background-color: var(--brand-color-2); }
+.bg-brand-3 { background-color: var(--brand-color-3); }
+.text-brand-1 { color: var(--brand-color-1); }
+.text-brand-2 { color: var(--brand-color-2); }
+.text-brand-3 { color: var(--brand-color-3); }
+.border-brand-1 { border-color: var(--brand-color-1); }
+.border-brand-2 { border-color: var(--brand-color-2); }
+.border-brand-3 { border-color: var(--brand-color-3); }
+
+// --- Increase default font-size ---
+
+html {
+  font-size: 14px;
+}
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 16px;
+  }
+}
+@include media-breakpoint-up(xxl) {
+  html {
+    font-size: 18px;
+  }
+}
+
+// Bigger nav-bar
+
+#header {
+  font-size: 16px;
+}
+@include media-breakpoint-up(md) {
+  #header {
+    font-size: 18px;
+  }
+}
+@include media-breakpoint-up(xxl) {
+  #header {
+    font-size: 20px;
+  }
+}
+
+// ----- BOOTSTRAP OVERRIDES -----
+
+// --- For Larger screens ;) ---
+
+@include media-breakpoint-up(xxl) {
+  .container {
+      max-width: 1920px;
+      width: 1920px; 
+  }
+}
+
+// --- More rounding shapes ---
+
+.rounded-xl {
+  border-radius: .5rem !important;
+}
+.rounded-xxl {
+  border-radius: 1rem !important;
+}
+
+.rounded-xxxl {
+  border-radius: 2rem !important;
+}
+
+.rounded-bottom-xl {
+  border-bottom-right-radius: 1rem !important;
+  border-bottom-left-radius: 1rem !important;
+}
+// .rounded-bottom-xxl {
+//   border-bottom-right-radius: 2rem !important;
+//   border-bottom-left-radius: 2rem !important;
+// }
+
+// --- Bolder nav-bar brand ---
+
+.navbar-brand {
+  font-weight: 900;
+}
+
+// ----- FONT-AWESOME STUFF -----
+
+// --- Inline SVG ---
+
+svg {
+  // width: 1em;
+  // height: 1em;
+
+  &.fa {
+    height: 1em;
+    width: auto;
+    max-width: 1.25em;
+    min-width: 1em;
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
+
+  &.fa-fw {
+    width: 1.25em;
+  }
+}
+
+
+// ----- SITE SPECIFIC WIDGETS -----
+
+// --- Dark-mode helpers ---
+
+/*
+// Image transition effects
+img.dark
+img.dark-op,
+img.dark-gs,
+img.dark.bt { }
+*/
+
+@include prefers-color-scheme(dark) {
+  img:not([src*=".svg"]).dark {
+    opacity: .75;
+    filter: brightness(.8) contrast(1.2);
+    transition: all .5s ease-in-out, filter .5s ease-in-out;
+    &:hover {
+      opacity: 1;
+      filter: none;
+    }
+  }
+}
+
+// --- Footer section ---
+
+.nope {
+  cursor: no-drop;
+}
+
+.site-footer {
+  a, a:hover {
+    text-decoration: none;
+  }
+
+  .container {
+    border-top: 1px solid #e5e5e5;
+  }
+}
+
+@include prefers-color-scheme(dark) {
+  .site-footer .container {
+    border-top: 1px solid #353844;
+    ;
+  }
+}
+
+// --- floating "Up" button
+
+.btn-floating {
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+@include prefers-color-scheme(dark) {
+  .btn-floating {
+    outline: 5px solid rgba(255,255,255,0.4);
+    outline-offset: 3px;
+  }
+}
+
+#btn-to-top {
+  &.btn-floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  &.collapse {
+    display: none;
+    opacity: 0;
+    // transition: 5s ease;
+
+    &.show {
+      display: flex;
+      opacity: 0.9;
+      // transition: 5s ease;      
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  #btn-to-top.btn-floating {
+    bottom: 40px;
+    right: 40px;
+  }
+}
+
+// --- Equal hight col boxes ---
+
+.row-eq-height {
+  &.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &.row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// --- Middot spans ---
+
+.middot::after {
+  content: "·";
+}
+
+// --- Home page related ---
+
+.site-more-btn {
+  text-transform: uppercase;
+  letter-spacing: 1em !important;
+  padding-left: 1.5em;  // to make up for the spacing right bug
+}
+
+// --- Contact form related ---
+
+.site-phone {
+  font-size: 30px;
+  font-weight: 700;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.site-email {
+  font-size: 20px;
+  font-weight: 700;
+
+  & a:hover {
+    text-decoration: none;
+  }
+}
+
+// --- Services page related ---
+
+.site-services {
+  .image {  
+    width: 100%;
+    max-width: 320px;
+  }
+  .icon {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+  }
+  .text {
+    p {
+      text-align: justify;
+    }
+  }
+}
+@include media-breakpoint-up(xxl) {
+  .site-services {
+    .image {
+      max-width: 480px;
+    }
+  }
+}
+@include media-breakpoint-down(sm) {
+  .site-services {
+    .text {
+      p {
+        text-align: left;
+      }
+    }
+  }
+}
+
+main.alt-row {
+  background-color: #EEE;
+}
+@include prefers-color-scheme(dark) {
+  main.alt-row {
+    background-color: #333;
+  }
+}
+
+// --- External Links ---
+
+@media screen {
+  a.external {
+    &::after { 
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free";
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      margin-left: 0.5em;
+      vertical-align: middle;
+      font-size: 50%;
+      content: "\f35d";  // fa-external-link-alt
+
+      .navbar &, .nav & {
+        display: none;
+      }
+    }
+  }
+}
+
+@media print {
+  a.external {
+    &::after{
+      content: " { " attr(href) " } ";
+    }
+  }
+}
+
+// --- OS-Detection stuff (BS Helpers) ---
+
+.os-macos .d-macos-none,
+.os-ios .d-iso-none,
+.os-windows .d-windows-none,
+.os-linux .d-linux-none,
+.os-android .d-android-none,
+.os-unknown .d-unknown-none {
+  display: none !important;
+}
+
+// --- Bin / Not used ---
+
+// .border-top { border-top: 1px solid #e5e5e5; }
+// .border-bottom { border-bottom: 1px solid #e5e5e5; }

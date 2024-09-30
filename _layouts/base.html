@@ -1,0 +1,35 @@
+---
+---
+
+<!doctype html>
+{% include globals.liquid %}
+{%- if debugTag -%}
+<!-- -------------------------------------------------- -->
+<!-- DEBUG MODE ON | {{ "now" | date: "%d %b %Y, %H:%M:%S"}} | V = {{ randomNumber }} -->
+<!-- -------------------------------------------------- -->
+{%- else -%}
+<!-- Made with <3 by Vino Rodrigues (https://github.com/vinorodrigues) -->
+{%- endif -%}
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+{% include head.html %}
+<body class="page-{{ page.layout }}">
+
+{% include custom-top.html %}
+{%- comment -%}<!-- {% include sprites.html %} -->{%- endcomment -%}
+{% include navbar.html %}
+
+<main class="{{ site.data.globals.mainclass }}" id="main">
+  <div class="container my-3 main">
+    <article>
+      {{ content }}
+    </article>
+  </div>
+</main>
+
+{% include footer.html %}
+{% include foot.html %}
+{% include custom-js.html %}
+{% include custom-bottom.html %}
+
+</body>
+</html>

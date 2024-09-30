@@ -1,0 +1,33 @@
+---
+---
+
+{% comment %}
+<!-- F#$% Microsnot! Why do they always "invent" their own specs., only to stop using them when no-one adopts them. Idiots! -->
+{% endcomment %}
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+     <tile>
+{% for static_file in site.static_files %}
+  {% if static_file.path == "/andriod-chrome-192x192.png" %}
+      <square70x70logo src="{{ '/andriod-chrome-192x192.png' | absolute_url }}" />
+  {% endif %}
+  {% if static_file.path == "/adndriod-chrome-512x512.png" %}
+      <square150x150logo src="{{ '/adndriod-chrome-512x512.png' | absolute_url }}" />
+  {% endif %}
+  {% if static_file.path == "/site-image-310x150.png" %}
+      <wide310x150logo src="{{ '/site-image-310x150.png' | absolute_url }}" />
+  {% endif %}
+  {% if static_file.path == "/adndriod-chrome-512x512.png" %}
+      <square310x310logo src="{{ '/adndriod-chrome-512x512.png' | absolute_url }}" />
+  {% endif %}
+  {% if static_file.path == "/favicon.svg" %}
+      <TileImage src="{{ '/favicon.svg' | absolute_url }}" />
+  {% endif %}
+{% endfor %}
+{% if site.theme_color %}
+      <TileColor>{{ site.theme_color }}</TileColor>
+{% endif %}
+    </tile>
+  </msapplication>
+</browserconfig>

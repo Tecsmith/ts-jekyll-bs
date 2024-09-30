@@ -1,0 +1,7 @@
+// from: https://github.com/vinorodrigues/bootstrap-dark , (c) 2021 Vino Rodrigues
+
+@mixin prefers-color-scheme( $scheme: dark ) {
+  @media (prefers-color-scheme: #{$scheme}) {
+    @content;
+  }
+}

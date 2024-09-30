@@ -1,0 +1,9 @@
+{% if site.data.globals.debug %}
+  {%- assign r_min = 1 -%}
+  {%- assign r_max = 1000000 -%}
+  {%- assign r_diff = r_max | minus: r_min -%}
+  {%- assign randomNumber = site.time | date: "%s" | modulo: r_diff | plus: r_min -%}
+  {%- assign debugTag = "?v=" | append: randomNumber -%}
+{% else %}
+  {%- assign debugTag = "" -%}
+{% endif %}
