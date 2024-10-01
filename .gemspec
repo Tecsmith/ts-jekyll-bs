@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name          = "ts-jekyll-bs"
   spec.version       = "0.1.0"
   spec.authors       = ["Vino Rodrigues"]
-  spec.email         = [""]
+  spec.email         = ["nospam@localhost.local"]
 
   spec.summary       = "Default Tecsmith theme for Jekyll sites, i.e. Github pages :)"
   spec.homepage      = "https://github.com/tecsmith/ts-jekyll-bs"

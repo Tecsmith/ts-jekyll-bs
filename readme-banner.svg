@@ -10,6 +10,9 @@
       .dm { fill: #eee; }
       .ol { stroke: #ddd; }
     }
+    @media (prefers-color-scheme: light) { 
+      .sh { filter: drop-shadow(0 0 1px #FFF); }
+    }
   </style>
 <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
   <g fill-rule="nonzero">
