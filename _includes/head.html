@@ -5,14 +5,11 @@
 
   <!-- Made with <3 by Vino Rodrigues, https://github.com/vinorodrigues -->
 
-  <title>{% if page.title %}{{ site.title }} - {{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ site.title | default: site.github.repository_name }} - {{ page.title }}{% else %}{{ site.title | default: site.github.repository_name }}{% endif %}</title>
 
 {% include seo-metadata.html %}
 
-  {%- assign darkmode = site.data.globals.darkmode -%}
-  {%- if darkmode == blank -%}
-    {%- assign darkmode = true -%}
-  {%- endif -%}
+  {%- assign darkmode = site.data.globals.darkmode | default: true -%}
   {%- assign _temp = darkmode | downcase -%}
   {%- if _temp == "force" -%}
     {%- assign darkmode_switch = 2 -%}
@@ -45,7 +42,7 @@
   {% endif %}
 
   <!-- This Site -->
-  <link rel="stylesheet" href="{{'/assets/css/style.css' | absolute_url | append: debugTag}}">
+  <link rel="stylesheet" href="{{'/assets/css/ts-jekyll-bs.css' | absolute_url | append: debugTag}}">
   <link rel="stylesheet" href="{{'/assets/css/main.css' | absolute_url | append: debugTag }}">
 {% for extracssfile in page.extra_css %}
   <link rel="stylesheet" href="{{ '/assets/css/' | absolute_url }}{{ extracssfile | append: debugTag }}">

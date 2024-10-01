@@ -11,6 +11,8 @@
 {%- unless headerclass -%}
   {%- assign headerclass = "navbar-dark bg-primary" -%}
 {%- endunless -%}
+{%- assign _nbl = site.data.navbar.no_brand_link %}
+{%- if _nbl -%}{%- assign brand_link = false -%}{%- else -%}{%- assign brand_link = true -%}{%- endif -%}
 
 {%- if site.data.navbar.menu -%}
 <header class="{{ headerclass }}" id="header">
@@ -20,15 +22,15 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <{% if site.data.navbar.no_brand_link %}div{% else %}a{% endif %} class="navbar-brand" href="{{ '/' | absolute_url }}">
+        <{% if brand_link %}a{% else %}div{% endif %} class="navbar-brand" href="{{ '/' | absolute_url }}">
           {% assign brand_logo = site.data.globals.brand.logo %}
           {% for static_file in site.static_files %}{% if static_file.path == brand_logo %}
           {% if brand_logo %}<img src="{{ brand_logo | absolute_url | append: debugTag }}" width="30" height="30" alt="">{% endif %}
           {% endif %}{% endfor  %}
           {% assign brand_name = site.data.globals.brand.name %}
-          {% if !brand_name %}{% assign brand_name = site.title %}{% endif %}
+          {% if !brand_name %}{% assign brand_name = site.title | default: site.github.repository_name %}{% endif %}
           {% if brand_name %}{{ brand_name }}{% endif %}
-        </{% if site.data.navbar.no_brand_link %}div{% else %}a{% endif %}>
+        </{% if brand_link %}a{% else %}div{% endif %}>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -103,11 +105,18 @@
             {% endfor %}
 
           </ul>
-          {% assign contact_url = site.data.navbar.contact_url %}
+          {% assign contact_url = site.data.navbar.contact_url | default: site.data.globals.contact_url %}
           {% if !contact_url %}
           <div class="form-inline my-2 my-lg-0">
             <a href="{{ contact_url | absolute_url }}" class="btn btn-outline-success my-2 my-sm-0">Contact Us <i class="fas fa-phone"></i></a>
           </div>
+          {% else %}
+            {% if site.show_downloads %}
+              <div class="form-inline my-2 my-lg-0 btn-group">
+                <a href="{{ site.github.zip_url }}" class="btn btn-info my-2 my-sm-0"><i class="fas fa-file-download"></i> .zip</a>
+                <a href="{{ site.github.tar_url }}" class="btn btn-info my-2 my-sm-0"><i class="fas fa-file-archive"></i> .tar.gz</a>
+              </div>
+            {% endif %}
           {% endif %}
         </div>
       </nav>

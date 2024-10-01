@@ -1,6 +1,6 @@
   <!-- Traditional metadata -->
   {% if page.url %}<link rel="canonical" href="{{ page.url | absolute_url | remove_trailing_slash }}">{% endif %}
-  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | default: site.github.project_description | escape }}{% endif %}">
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords | join: ', ' | escape }}">{% endif %}
   <!-- /Traditional metadata -->
 
@@ -9,12 +9,12 @@
   <!-- @See: https://www.kapwing.com/explore/og-image-template for `og:image` requirements -->
   {% endcomment %}
   <!-- Open Graph metadata -->
-  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | default: site.github.repository_name | escape }}{% endif %}">
   <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}">
   <meta property="og:image" content="{% if page.image %}{{ '/assets/img/posts/' | absolute_url }}{{ page.image | append: debugTag }}{% else %}{{ '/site-image-1200x630.png' | absolute_url | append: debugTag }}{% endif %}">
-  <meta property="og:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
-  <meta property="og:site_name" content="{{ site.title | escape }}">
-  <meta property="og:description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+  <meta property="og:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | default: site.github.repository_name | escape }}{% endif %}">
+  <meta property="og:site_name" content="{{ site.title | default: site.github.repository_name | escape }}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | default: site.github.project_description | escape }}{% endif %}">
   <meta property="og:locale" content="{{ page.lang | default: site.lang | default: "en" }}">
   {% if page.url %}<meta property="og:url" content="{{ page.url | absolute_url | remove_trailing_slash }}">{% endif %}
   {% if page.date %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">

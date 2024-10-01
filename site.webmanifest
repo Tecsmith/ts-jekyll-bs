@@ -5,8 +5,8 @@
 {%- include globals.liquid -%}
 
 {
-  "name": "{{ site.title | escape }}",
-  "short_name": "{{ site.title | escape }}",
+  "name": "{{ site.title | default: site.github.repository_name | escape }}",
+  "short_name": "{{ site.title | default: site.github.repository_name | escape }}",
   "icons": [
 {%- for static_file in site.static_files -%}        
   {%- if static_file.path == "/android-chrome-192x192.png" -%}
@@ -29,9 +29,9 @@
   {%- endif -%}
 {%- endfor -%}
   ],
-{%- if site.theme_color -%}
-  "theme_color": "{{ site.theme_color }}",
-  "background_color": "{{ site.theme_color }}",
+{%- if site.data.globals.theme.color -%}
+  "theme_color": "{{ site.data.globals.theme.color }}",
+  "background_color": "{{ site.data.globals.theme.color }}",
 {%- endif -%}
   "display": "standalone"
 }

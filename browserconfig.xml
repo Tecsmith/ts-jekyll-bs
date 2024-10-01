@@ -26,8 +26,8 @@
       <TileImage src="{{ '/favicon.svg' | absolute_url }}" />
   {% endif %}
 {% endfor %}
-{% if site.theme_color %}
-      <TileColor>{{ site.theme_color }}</TileColor>
+{% if site.data.globals.theme.color %}
+      <TileColor>{{ site.data.globals.theme.color }}</TileColor>
 {% endif %}
     </tile>
   </msapplication>

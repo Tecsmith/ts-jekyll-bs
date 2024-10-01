@@ -9,6 +9,11 @@ A [**Jekyll**](https://jekyllrb.com/) Theme shaped arround:
 - [**Bootsrap Dark** *(4)*](https://github.com/vinorodrigues/bootstrap-dark)
 - [**FontAwesome** 5](https://fontawesome.com/v5/icons/)
 
+
+<table>
+  <tr><td><img src="assets/img/screenshot-1.jpg" alt="Light mode"></td><td><img src="assets/img/screenshot-2.jpg" alt="Dark mode"></td></tr>
+</table>
+
 ## Installation
 
 > `TO DO`
@@ -101,7 +106,7 @@ layout: base
 
 Delete the file `_sass/base.scss`.  This is not needed.
 
-##### Edit `assets\css\main.sess`
+##### Edit `assets\css\main.scss`
 
 Delete the line `@import "base";`.  This is not needed.  The file should start with only the bare frontmatter
 
@@ -133,6 +138,21 @@ Start developing your Jekyll website.
 ```bash
 bundle exec jekyll serve --open-url --livereload --livereload-port 4001 --trace
 ```
+
+## Editing
+
+- This theme is based on Bootstrap 4 - see https://getbootstrap.com/docs/4.6/getting-started/introduction/ for HTML styling.
+
+- This theme uses FontAwesome 5 *("free" sub-set)* - see https://fontawesome.com/v5/search for icons that can be used.
+
+  Use:
+
+  ```html
+  <i class="fas fa-question-circle"></i>
+  ```
+
+  Where `question-circle` is the icon name
+
 
 ## License
 
