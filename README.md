@@ -81,7 +81,7 @@ bundle install
 
 #### Base file tweaks
 
->> ***OPTIONAL***
+> ***{Optional}***
 
 The `jekyll new` command generates a few file assumptions that can be tweaked to make the theme work better.
 
