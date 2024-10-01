@@ -5,7 +5,7 @@
 
 <!-- Site JS -->
 <script src="{{ '/assets/js/site.js' | absolute_url | append: debugTag }}"></script>
-<script src="{{ '/assets/js/custom-site.js' | absolute_url | append: debugTag}}"></script>
+<script src="{{ '/assets/js/main.js' | absolute_url | append: debugTag}}"></script>
 {%- for extrajsfile in layout.extra_js %}
 <script src="{{ '/assets/js/' | absolute_url }}{{ extrajsfile | append: debugTag }}"></script>
 {% endfor -%}

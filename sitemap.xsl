@@ -1,4 +1,5 @@
 ---
+# Front matter comment to ensure Jekyll properly reads file.
 ---
 
 <?xml version="1.0" encoding="UTF-8"?>
