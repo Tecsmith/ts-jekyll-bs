@@ -6,7 +6,7 @@
 </defs>
 <style>
     @media (prefers-color-scheme: dark) { 
-      .sh { filter: drop-shadow(0 0 1px #222); }
+      .sh { filter: drop-shadow(0 0 1px #111; }
       .dm { fill: #eee; }
       .ol { stroke: #ddd; }
     }

@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-# gemspec
+gemspec
 
 gem "liquid", "~> 4.0"
 gem "jekyll", "~> 4.3"
-gemspec
