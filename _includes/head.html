@@ -55,6 +55,9 @@
 {% for extracssfile in layout.extra_css %}
   <link rel="stylesheet" href="{{ '/assets/css/' | absolute_url }}{{ extracssfile | append: debugTag }}">
 {% endfor %}
+{% if page.url == '/404.html' %}
+  <meta http-equiv="refresh" content="30; url={{ '/' | absolute_url}}">
+{% endif %}
 {% include custom-css.html %}
 {% include custom-metadata.html %}
 {% include custom-head.html %}

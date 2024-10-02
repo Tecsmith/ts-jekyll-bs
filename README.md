@@ -154,11 +154,71 @@ bundle exec jekyll serve --open-url --livereload --livereload-port 4001 --trace
   Where `question-circle` is the icon name
 
 
+## Deployment
+
+### `jekyll-remote-theme` and Missing Template Files
+
+![Help Wanted](https://img.shields.io/badge/Help-Wanted-%23F00?labelColor=%23FF0)
+
+For some reason, there are files in this template that do not propagate to the generated site when using `jekyll-remote-theme`.
+
+To get around this you will need to manually copy a few files from this template to your site's source root.  These are:
+
+```bash
+404.html
+browserconfig.xml
+site.webmanifest
+sitemap.xsl
+.htaccess  # optional copy (or rename) of htaccess.txt *
+```
+
+> * **Note:** you will need to rename `htaccess.txt` to `.htaccess` i you're self hosting.  This will not work on a Github Pages site.
+
+You will <ins>also</ins> need to edit the `_config.yml` file to *"`include`"* those files:
+
+```yaml
+include:
+  - '404.html'
+  - 'browserconfig.xml'
+  - 'site.webmanifest'
+  - 'sitemap.xsl'
+  - `.htaccess`  # optional copy (or rename) of `htaccess.txt`
+```
+
+### FavIcon
+
+This template automatically generates the appropriate minimal images required for browser favourite icon *(a.k.a. "FavIcon")* usage.  You will need to provide the following images placed in your site's source root:
+
+```bash
+android-chrome-192x192.png
+android-chrome-512x512.png
+apple-touch-icon.png       # 180x180
+favicon-16x16.png
+favicon-32x32.png
+favicon.gif                # 16x16
+favicon.ico                # 64x64
+favicon.png                # 1024x1024, compress with http://tinypng.com
+favicon.svg                # 1024x1024, compress with https://vecta.io/nano
+```
+
+> Recommended images sizes are in the file names, or commented above.
+
+It also generates Open Graph metadata *(for use in Facebook or (Twitter) X links)*, and that too will need the following images:
+
+```bash
+site-image-1200x630.png
+site-image-310x150.png
+```
+
 ## License
+
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 
 &nbsp;<br>&nbsp;
+
 ---
 Made with &#9829; by **Vino Rodrigues**
