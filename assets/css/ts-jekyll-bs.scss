@@ -1,12 +1,19 @@
 ---
-# Front matter comment to ensure Jekyll properly reads file.
+# Front Matter comment to ensure Jekyll properly reads file.
 ---
+
+@charset "utf-8";
 
 @import "variables";  // partially from Bootstrap 4
 @import "breakpoints";  // from Bootstrap 4
 @import "color-scheme";  // from Bootstrap-Dark
 
-@charset "utf-8";
+
+// ----------------
+// === Branding ===
+// ----------------
+
+// - Color Palette -
 
 :root {
   --brand-color-1: var(--blue);
@@ -14,56 +21,56 @@
   --brand-color-3: var(--red);
 
   // from https://iamkate.com/data/12-bit-rainbow/
-  --rainbow-color-1: #817;
-  --rainbow-color-2: #a35;
-  --rainbow-color-3: #c66;
-  --rainbow-color-4: #e94;
-  --rainbow-color-5: #ed0;
-  --rainbow-color-6: #9d5;
-  --rainbow-color-7: #4d8;
-  --rainbow-color-8: #2cb;
-  --rainbow-color-9: #0bc;
-  --rainbow-color-10: #09c;
-  --rainbow-color-11: #36b;
-  --rainbow-color-12: #639;
-  --greyscale-color-1: #404040;
-  --greyscale-color-2: #5c5c5c;
-  --greyscale-color-3: #848484;
-  --greyscale-color-4: #a9a9a9;
-  --greyscale-color-5: #c9c9c9;
-  --greyscale-color-6: #b9b9b9;
-  --greyscale-color-7: #a6a6a6;
-  --greyscale-color-8: #979797;
-  --greyscale-color-9: #858585;
+  --rainbow-color-1:    #817;
+  --rainbow-color-2:    #a35;
+  --rainbow-color-3:    #c66;
+  --rainbow-color-4:    #e94;
+  --rainbow-color-5:    #ed0;
+  --rainbow-color-6:    #9d5;
+  --rainbow-color-7:    #4d8;
+  --rainbow-color-8:    #2cb;
+  --rainbow-color-9:    #0bc;
+  --rainbow-color-10:   #09c;
+  --rainbow-color-11:   #36b;
+  --rainbow-color-12:   #639;
+  --greyscale-color-1:  #404040;
+  --greyscale-color-2:  #5c5c5c;
+  --greyscale-color-3:  #848484;
+  --greyscale-color-4:  #a9a9a9;
+  --greyscale-color-5:  #c9c9c9;
+  --greyscale-color-6:  #b9b9b9;
+  --greyscale-color-7:  #a6a6a6;
+  --greyscale-color-8:  #979797;
+  --greyscale-color-9:  #858585;
   --greyscale-color-10: #717171;
   --greyscale-color-11: #606060;
   --greyscale-color-12: #4e4e4e;
 
   // override BS, but keep them as fallback defaults
-  --blue: var(--rainbow-color-11, #{$blue});
-  --indigo: var(--rainbow-color-12, #{$indigo});
-  --purple: var(--rainbow-color-1, #{$purple});
-  --pink: var(--rainbow-color-3, #{$pink});
-  --red: var(--rainbow-color-2, #{$red});
-  --orange: var(--rainbow-color-4, #{$orange});
-  --yellow: var(--rainbow-color-5, #{$yellow});
-  --green: var(--rainbow-color-7, #{$green});
-  --teal: var(--rainbow-color-8, #{$teal});
-  --cyan: var(--rainbow-color-9, #{$cyan});
-  --white: #{$white};
-  --gray: var(--greyscale-color-12, #{$gray-600});
+  --blue:      var(--rainbow-color-11, #{$blue});
+  --indigo:    var(--rainbow-color-12, #{$indigo});
+  --purple:    var(--rainbow-color-1, #{$purple});
+  --pink:      var(--rainbow-color-3, #{$pink});
+  --red:       var(--rainbow-color-2, #{$red});
+  --orange:    var(--rainbow-color-4, #{$orange});
+  --yellow:    var(--rainbow-color-5, #{$yellow});
+  --green:     var(--rainbow-color-7, #{$green});
+  --teal:      var(--rainbow-color-8, #{$teal});
+  --cyan:      var(--rainbow-color-9, #{$cyan});
+  --white:     #{$white};
+  --gray:      var(--greyscale-color-12, #{$gray-600});
   --gray-dark: var(--greyscale-color-1, #{$gray-800});
-  --primary: var(--rainbow-color-11, #{$primary});
+  --primary:   var(--rainbow-color-11, #{$primary});
   --secondary: var(--greyscale-color-12, #{$secondary});
-  --success: var(--rainbow-color-8, #{$success});
-  --info: var(--rainbow-color-10, #{$info});
-  --warning: var(--rainbow-color-4, #{$warning});
-  --danger: var(--rainbow-color-2, #{$danger});
-  --light: var(--greyscale-color-4, #{$light});
-  --dark: var(--greyscale-color-10, #{$dark});
+  --success:   var(--rainbow-color-8, #{$success});
+  --info:      var(--rainbow-color-10, #{$info});
+  --warning:   var(--rainbow-color-4, #{$warning});
+  --danger:    var(--rainbow-color-2, #{$danger});
+  --light:     var(--greyscale-color-4, #{$light});
+  --dark:      var(--greyscale-color-10, #{$dark});
 }
 
-// -- Brand helpers ---
+// - Brand helpers -
 
 .bg-brand-1 { background-color: var(--brand-color-1); }
 .bg-brand-2 { background-color: var(--brand-color-2); }
@@ -75,41 +82,11 @@
 .border-brand-2 { border-color: var(--brand-color-2); }
 .border-brand-3 { border-color: var(--brand-color-3); }
 
-// --- Increase default font-size ---
+// ---------------------------
+// === Bootstrap Overrides ===
+// ---------------------------
 
-html {
-  font-size: 14px;
-}
-@include media-breakpoint-up(md) {
-  html {
-    font-size: 16px;
-  }
-}
-@include media-breakpoint-up(xxl) {
-  html {
-    font-size: 18px;
-  }
-}
-
-// Bigger nav-bar
-
-#header {
-  font-size: 16px;
-}
-@include media-breakpoint-up(md) {
-  #header {
-    font-size: 18px;
-  }
-}
-@include media-breakpoint-up(xxl) {
-  #header {
-    font-size: 20px;
-  }
-}
-
-// ----- BOOTSTRAP OVERRIDES -----
-
-// --- For Larger screens ;) ---
+// - For Larger screens ;) -
 
 @include media-breakpoint-up(xxl) {
   .container {
@@ -118,37 +95,30 @@ html {
   }
 }
 
-// --- More rounding shapes ---
+// - More rounded shapes -
 
-.rounded-xl {
-  border-radius: .5rem !important;
-}
-.rounded-xxl {
-  border-radius: 1rem !important;
-}
-
-.rounded-xxxl {
-  border-radius: 2rem !important;
-}
-
+.rounded-xl { border-radius: .5rem !important; }
+.rounded-xxl { border-radius: 1rem !important; }
+.rounded-xxxl { border-radius: 2rem !important; }
 .rounded-bottom-xl {
+  border-bottom-right-radius: .5rem !important;
+  border-bottom-left-radius: .5rem !important;
+}
+.rounded-bottom-xxl {
   border-bottom-right-radius: 1rem !important;
   border-bottom-left-radius: 1rem !important;
 }
-// .rounded-bottom-xxl {
-//   border-bottom-right-radius: 2rem !important;
-//   border-bottom-left-radius: 2rem !important;
-// }
-
-// --- Bolder nav-bar brand ---
-
-.navbar-brand {
-  font-weight: 900;
+.rounded-bottom-xxxl {
+  border-bottom-right-radius: 2rem !important;
+  border-bottom-left-radius: 2rem !important;
 }
 
-// ----- FONT-AWESOME STUFF -----
 
-// --- Inline SVG ---
+// -------------------------
+// === FontAwesome Stuff ===
+// -------------------------
+
+// - Inline SVG (ergo "sprites") -
 
 svg {
   // width: 1em;
@@ -169,17 +139,55 @@ svg {
 }
 
 
-// ----- SITE SPECIFIC WIDGETS -----
+// ---------------------------------
+// === Tweaks and Customizations ===
+// ---------------------------------
 
-// --- Dark-mode helpers ---
+// - Increase default font-size -
 
-/*
-// Image transition effects
-img.dark
-img.dark-op,
-img.dark-gs,
-img.dark.bt { }
-*/
+html {
+  font-size: 14px;
+}
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 16px;
+  }
+}
+@include media-breakpoint-up(xxl) {
+  html {
+    font-size: 18px;
+  }
+}
+
+// - Bigger nav-bar -
+
+#header {
+  font-size: 16px;
+}
+@include media-breakpoint-up(md) {
+  #header {
+    font-size: 18px;
+  }
+}
+@include media-breakpoint-up(xxl) {
+  #header {
+    font-size: 20px;
+  }
+}
+
+// - Bolder nav-bar brand -
+
+.navbar-brand {
+  font-weight: 900;
+}
+
+// - Dark-mode helpers -
+
+// // Image transition effects
+// img.dark
+// img.dark-op,
+// img.dark-gs,
+// img.dark.bt { }
 
 @include prefers-color-scheme(dark) {
   img:not([src*=".svg"]).dark {
@@ -193,7 +201,13 @@ img.dark.bt { }
   }
 }
 
-// --- Footer section ---
+
+// -----------------------------
+// === Site Specific Widgets ===
+// -----------------------------
+
+
+// - Footer section -
 
 .nope {
   cursor: no-drop;
@@ -216,7 +230,7 @@ img.dark.bt { }
   }
 }
 
-// --- floating "Up" button
+// - floating "Up" button -
 
 .btn-floating {
   opacity: 0.9;
@@ -260,7 +274,7 @@ img.dark.bt { }
   }
 }
 
-// --- Equal hight col boxes ---
+// - Equal hight col boxes -
 
 .row-eq-height {
   &.row {
@@ -276,7 +290,7 @@ img.dark.bt { }
   }
 }
 
-// --- Middot spans ---
+// - Middot spans -
 
 .middot::after {
   content: "·";
@@ -288,71 +302,6 @@ img.dark.bt { }
   text-transform: uppercase;
   letter-spacing: 1em !important;
   padding-left: 1.5em;  // to make up for the spacing right bug
-}
-
-// --- Contact form related ---
-
-.site-phone {
-  font-size: 30px;
-  font-weight: 700;
-  opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-  }
-}
-
-.site-email {
-  font-size: 20px;
-  font-weight: 700;
-
-  & a:hover {
-    text-decoration: none;
-  }
-}
-
-// --- Services page related ---
-
-.site-services {
-  .image {  
-    width: 100%;
-    max-width: 320px;
-  }
-  .icon {
-    width: 32px;
-    height: 32px;
-    text-align: center;
-  }
-  .text {
-    p {
-      text-align: justify;
-    }
-  }
-}
-@include media-breakpoint-up(xxl) {
-  .site-services {
-    .image {
-      max-width: 480px;
-    }
-  }
-}
-@include media-breakpoint-down(sm) {
-  .site-services {
-    .text {
-      p {
-        text-align: left;
-      }
-    }
-  }
-}
-
-main.alt-row {
-  background-color: #EEE;
-}
-@include prefers-color-scheme(dark) {
-  main.alt-row {
-    background-color: #333;
-  }
 }
 
 // --- External Links ---
@@ -389,7 +338,7 @@ main.alt-row {
   }
 }
 
-// --- OS-Detection stuff (BS Helpers) ---
+// - OS-Detection stuff (BS Helpers) -
 
 .os-macos .d-macos-none,
 .os-ios .d-iso-none,
@@ -399,8 +348,3 @@ main.alt-row {
 .os-unknown .d-unknown-none {
   display: none !important;
 }
-
-// --- Bin / Not used ---
-
-// .border-top { border-top: 1px solid #e5e5e5; }
-// .border-bottom { border-bottom: 1px solid #e5e5e5; }
