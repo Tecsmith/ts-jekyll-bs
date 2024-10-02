@@ -1,6 +1,8 @@
 ---
-# Front matter comment to ensure Jekyll properly reads file.
+# Front Matter comment to ensure Jekyll properly reads file.
 ---
+
+{%- include globals.liquid -%}
 
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -19,7 +21,7 @@
     <body>
       <div class="container my-3">
         <header class="row">
-          <h1 class="col h3 mt-5"><a href="{{ '/' | absolute_url }}"><img src="{{ 'favicon.svg' | absolute_url }}" width="32" height="32" alt=""/><span> {{ site.title | default: site.github.repository_name | escape }}</span></a><small class="text-muted"> - Sitemap</small></h1>
+          <h1 class="col h3 mt-5"><a href="{{ '/' | absolute_url }}"><img src="{{ 'favicon.svg' | absolute_url | append: debugTag }}" width="32" height="32" alt=""/><span> {{ site.title | default: site.github.repository_name | escape }}</span></a><small class="text-muted"> - Sitemap</small></h1>
         </header>
         <div class="row my-2 p-3">
           <div class="col xframe rounded rounded-lg border shadow shadow-lg">

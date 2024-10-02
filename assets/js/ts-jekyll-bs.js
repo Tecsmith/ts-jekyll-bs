@@ -1,8 +1,13 @@
 ---
-# Front matter comment to ensure Jekyll properly reads file.
+# // Front Matter comment to ensure Jekyll properly reads file.
 ---
 
-// --- Detect OS from browser ---
+/*!
+ *  ts-jekyll-bs template JS, © 2024 Vino Rodrigues (@vinorodrigues)
+ *  See: https://github.com/Tecsmith/ts-jekyll-bs
+ */
+
+// --- Detect OS From Browser ---
 
 function detectOS() {
   var userAgent = window.navigator.userAgent,
@@ -29,15 +34,15 @@ function detectOS() {
   return os;
 }
 
-// ----- general Doc ready -----
+// --- General Doc Ready ---
 
 $( document ).ready(function() {
-  // Change copyright year
+  // --- Change copyright year ---
   var copyright_year = $('#copyright');
   this_year = new Date().getFullYear();
   if (this_year != Number( copyright_year.text() )) copyright_year.text (  copyright_year.text() + '-' + this_year );
 
-  // Modify external links, by adding an ".external" class
+  // --- Modify external links, by adding an ".external" class ---
   $('a').each(function() {
     let href = $(this).attr('href');
     if (typeof href !== 'undefined' && href !== false) {
@@ -51,12 +56,12 @@ $( document ).ready(function() {
     $(this).attr('target', '_blank');
   });
 
-  // Add detect OS class to the body tag
+  // --- Add detect OS class to the body tag ---
   let os = detectOS();
   if (os !== null)
     $('body').addClass('os-' + os);
 
-  // Add dots to the ABN and cut out spaces
+  // --- Add dots to the ABN and cut out spaces ---
   $('.middot-spaces').each(function() {
     var s = $(this).text();
     var s = s.replace(/[ -]/gi, '<span class="middot"></span>');
@@ -67,7 +72,7 @@ $( document ).ready(function() {
 
 });
 
-// ----- enable scroll to top button -----
+// --- Enable Scroll To Top Button ---
 
 $( document ).ready(function() {
   tof_button.addClass('collapse');
@@ -115,7 +120,7 @@ function scrollBtnFunction() {
   lastScroll = currentScroll;
 };
 
-// ----- nab-bar double click function -----
+// --- Nav-bar Double Click Function ---
 
 $( document ).ready(function() {
   $('a.dropdown-toggle').each( function() {

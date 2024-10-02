@@ -27,9 +27,9 @@ A [**Jekyll**](https://jekyllrb.com/) Theme shaped arround:
 Refers to files within the `_layouts` directory, that define the markup for your theme.
 
   - `base.html` &mdash; The base layout that lays the foundation for subsequent layouts. The derived layouts inject their
-    contents into this file at the line that says ` {{ content }} ` and are linked to this file via *FrontMatter* declaration `layout: base`.
+    contents into this file at the line that says ` {{ content }} ` and are linked to this file via *Front Matter* declaration `layout: base`.
 <!-- - `home.html` &mdash; The layout for your landing-page / home-page / index-page. [[More Info.](#home-layout)] -->
-  - `page.html` &mdash; The layout for your documents that contain FrontMatter, but are not posts.
+  - `page.html` &mdash; The layout for your documents that contain Front Matter, but are not posts.
   - `post.html` &mdash; The layout for your posts.
 
 
@@ -92,7 +92,7 @@ The `jekyll new` command generates a few file assumptions that can be tweaked to
 
 ##### Edit `_layouts/default.html`
 
-Add the `base` layout to the front matter, and remove generated content except `{{ content }}`.
+Add the `base` layout to the Front Matter, and remove generated content except `{{ content }}`.
 
 ```html
 ---
@@ -108,7 +108,7 @@ Delete the file `_sass/base.scss`.  This is not needed.
 
 ##### Edit `assets\css\main.scss`
 
-Delete the line `@import "base";`.  This is not needed.  The file should start with only the bare frontmatter
+Delete the line `@import "base";`.  This is not needed.  The file should start with only the bare Front Matter
 
 ```scss
 ---
@@ -119,7 +119,7 @@ Delete the line `@import "base";`.  This is not needed.  The file should start w
 
 ##### Edit `index.md`
 
-Change the `default` layout to `base` in the front matter section.
+Change the `default` layout to `base` in the Front Matter section.
 
 ```md
 ---

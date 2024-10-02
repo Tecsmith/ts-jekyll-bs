@@ -1,4 +1,4 @@
-{% if site.data.globals.debug %}
+{% if site.data.globals.debug | default: false %}
   {%- assign r_min = 1 -%}
   {%- assign r_max = 1000000 -%}
   {%- assign r_diff = r_max | minus: r_min -%}
