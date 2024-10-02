@@ -1,8 +1,0 @@
-theme_name: ts-jekyll-bs
-description: "Default Tecsmith theme for Jekyll sites, i.e. Github pages :)"
-
-include:
-  - '404.html'
-  - 'browserconfig.xml'
-  - 'site.webmanifest'
-  - 'sitemap.xsl'

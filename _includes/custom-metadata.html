@@ -6,13 +6,13 @@
 {%- include globals.liquid -%}
 
 {%- for static_file in site.static_files -%}
-  {% if static_file.path == '/favicon.svg' %}<link rel="icon" type="image/svg+xml" href="{{'/favicon.svg' | absolute_url | append: debugTag}}">{% endif %}
-  {% if static_file.path == 'apple-touch-icon.png' %}<link rel="apple-touch-icon" sizes="180x180" href="{{'/apple-touch-icon.png' | absolute_url | append: debugTag}}">{% endif %}
-  {% if static_file.path == '/favicon.svg' %}<link rel="apple-touch-startup-image" href="{{'/favicon.svg' | absolute_url | append: debugTag}}">{% endif %}
-  {% if static_file.path == '/favicon-32x32.png' %}<link rel="icon" type="image/png" sizes="32x32" href="{{'/favicon-32x32.png' | absolute_url | append: debugTag}}">{% endif %}
-  {% if static_file.path == '/favicon-16x16.png' %}<link rel="icon" type="image/png" sizes="16x16" href="{{'/favicon-16x16.png' | absolute_url | append: debugTag}}">{% endif %}
-  {% if static_file.path == '/site.webmanifest' %}<link rel="manifest" href="{{'/site.webmanifest' | absolute_url | append: debugTag}}">{% endif %}
-  {% if static_file.path == '/browserconfig.xml' %}<meta name="msapplication-config" content="{{'browserconfig.xml' | absolute_url | append: debugTag}}">{% endif %}
+  {%- if static_file.path == '/favicon.svg' -%}<link rel="icon" type="image/svg+xml" href="{{'/favicon.svg' | absolute_url | append: debugTag}}">{%- endif -%}
+  {%- if static_file.path == 'apple-touch-icon.png' -%}<link rel="apple-touch-icon" sizes="180x180" href="{{'/apple-touch-icon.png' | absolute_url | append: debugTag}}">{%- endif -%}
+  {%- if static_file.path == '/favicon.svg' -%}<link rel="apple-touch-startup-image" href="{{'/favicon.svg' | absolute_url | append: debugTag}}">{%- endif -%}
+  {%- if static_file.path == '/favicon-32x32.png' -%}<link rel="icon" type="image/png" sizes="32x32" href="{{'/favicon-32x32.png' | absolute_url | append: debugTag}}">{%- endif -%}
+  {%- if static_file.path == '/favicon-16x16.png' -%}<link rel="icon" type="image/png" sizes="16x16" href="{{'/favicon-16x16.png' | absolute_url | append: debugTag}}">{%- endif -%}
+  {%- if static_file.path == '/site.webmanifest' -%}<link rel="manifest" href="{{'/site.webmanifest' | absolute_url | append: debugTag}}">{%- endif -%}
+  {%- if static_file.path == '/browserconfig.xml' -%}<meta name="msapplication-config" content="{{'browserconfig.xml' | absolute_url | append: debugTag}}">{%- endif -%}
 {%- endfor -%}
   <meta name="apple-mobile-web-app-title" content="{{ site.title | default: site.github.repository_name | escape }}">
 {% if site.data.globals.theme.color %}
