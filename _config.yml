@@ -1,0 +1,33 @@
+## ts-jekyll-bs Theme Preview
+
+title: "Your Awesome Co."
+description: "A Jekyll theme built on Vino Rodrigue's Bootstrap Dark 4 project."
+baseurl: "/"
+
+###! --- REMOTE THEME !! ---
+remote_theme: https://github.com/tecsmith/ts-jekyll-bs
+
+### --- Theme settings ---
+encoding: utf-8
+show_downloads: true
+
+
+## --- SASS ---
+sass:
+  sass_dir: assets/css
+  sourcemap: never
+  style: compressed
+
+## --- Exclude ---
+# The following items will **not** be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to the internal "default list".
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+exclude:
+  - 'README.GH-PAGES.md'
+
+plugins:
+  ## ... Theme support ...
+  - jekyll-remote-theme
+  ## ... More ...
+  ## Remember to also change in `Gemfile`
