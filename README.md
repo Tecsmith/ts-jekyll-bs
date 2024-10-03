@@ -158,7 +158,7 @@ bundle exec jekyll serve --open-url --livereload --livereload-port 4001 --trace
 
 ### `jekyll-remote-theme` and Missing Template Files
 
-![Help Wanted](https://img.shields.io/badge/Help-Wanted-%23F00?labelColor=%23FF0)
+> ![Help Wanted](https://img.shields.io/badge/Help-Wanted-%23F00?labelColor=%23FF0)
 
 For some reason, there are files in this template that do not propagate to the generated site when using `jekyll-remote-theme`.
 
@@ -172,7 +172,8 @@ sitemap.xsl
 .htaccess  # optional copy (or rename) of htaccess.txt *
 ```
 
-> * **Note:** you will need to rename `htaccess.txt` to `.htaccess` i you're self hosting.  This will not work on a Github Pages site.
+> * **Note:** You will need to rename `htaccess.txt` to `.htaccess` if you're self hosting.
+> * **Note:** This will <ins>not work</ins> on a <ins>Github Pages</ins> site.
 
 You will <ins>also</ins> need to edit the `_config.yml` file to *"`include`"* those files:
 
@@ -187,7 +188,7 @@ include:
 
 ### FavIcon
 
-This template automatically generates the appropriate minimal images required for browser favourite icon *(a.k.a. "FavIcon")* usage.  You will need to provide the following images placed in your site's source root:
+This template automatically generates the <ins>metadata</ins> needed fot the appropriate minimal images required for browser favourite icon *(a.k.a. "FavIcon")* usage.  You will need to provide the following images placed in your site's source root:
 
 ```bash
 android-chrome-192x192.png
@@ -201,7 +202,7 @@ favicon.png                # 1024x1024, compress with http://tinypng.com
 favicon.svg                # 1024x1024, compress with https://vecta.io/nano
 ```
 
-> Recommended images sizes are in the file names, or commented above.
+> * **Fyi:** Recommended images sizes are in the file names, or commented above.
 
 It also generates Open Graph metadata *(for use in Facebook or (Twitter) X links)*, and that too will need the following images:
 
