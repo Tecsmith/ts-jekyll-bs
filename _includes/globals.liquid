@@ -1,9 +1,15 @@
-{% if site.data.globals.debug | default: false %}
+{%- assign debugMode = site.data.globals.debug | default: false  -%}
+{%- if jekyll.environment == "development" -%}
+  {%- assign devMode = true -%}
+{%- else -%}
+  {%- assign devMode = false -%}
+{%- endif -%}
+{%- if devMode and debugMode -%}
   {%- assign r_min = 1 -%}
   {%- assign r_max = 1000000 -%}
   {%- assign r_diff = r_max | minus: r_min -%}
   {%- assign randomNumber = site.time | date: "%s" | modulo: r_diff | plus: r_min -%}
   {%- assign debugTag = "?v=" | append: randomNumber -%}
-{% else %}
+{%- else -%}
   {%- assign debugTag = "" -%}
-{% endif %}
+{%- endif -%}

@@ -5,13 +5,17 @@
 <!doctype html>
 
 {%- include globals.liquid -%}
-{%- if debugTag -%}
+{% if true %}{{ "
+" }}{% endif -%}
+{%- if debugTag != "" -%}
 <!-- -------------------------------------------------- -->
 <!-- DEBUG MODE ON | {{ "now" | date: "%d %b %Y, %H:%M:%S"}} | V = {{ randomNumber }} -->
 <!-- -------------------------------------------------- -->
 {%- else -%}
 <!-- Made with <3 by Vino Rodrigues [@vinorodrigues](https://github.com/vinorodrigues) -->
 {%- endif -%}
+{% if true %}{{ "
+" }}{% endif -%}
 
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 {% include head.html %}
