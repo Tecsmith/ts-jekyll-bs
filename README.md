@@ -75,7 +75,7 @@ plugins:
 #### *(Optional)* Configure Bundler to install gems in a specific directory
 
 ```bash
-bundle config set --local path "vendor/bundle"
+bundle config set --local path ".bundle/vendor"
 ```
 
 #### Run `bundle install` to fetch and install the gems
