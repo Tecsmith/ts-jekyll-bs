@@ -36,7 +36,7 @@ Refers to files within the `_layouts` directory, that define the markup for your
 
 ## Developing with
 
-#### Set up a new sit in Jekyll
+#### Set up a new site in Jekyll
 
 ```bash
 jekyll new PATH --blank
@@ -56,7 +56,7 @@ bundle init
 ```rb
 gem "jekyll", '~> 4.3'
 
-gem 'ts-jekyll-bs', '>= 0.1.0', :git => 'http://github.com/tecsmith/ts-jekyll-bs.git', branch: 'main'
+gem 'ts-jekyll-bs', '>= 0.1.0', :git => 'http://github.com/tecsmith/ts-jekyll-bs', branch: 'main'
 
 group :jekyll_plugins do
   gem 'jekyll-remote-theme', '~> 0.4'
