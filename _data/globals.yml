@@ -1,6 +1,9 @@
 debug: true
+
 brand:
-  name: ACME Co
+  # name: Your Awesome Co.  # defaults to `site.title`
   logo: /favicon.svg
+
 copyright: 2024
+
 darkmode: true
