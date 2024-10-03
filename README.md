@@ -11,12 +11,13 @@ A [**Jekyll**](https://jekyllrb.com/) Theme shaped arround:
 
 
 <table>
-  <tr><td><img src="assets/img/screenshot-1.jpg" alt="Light mode"></td><td><img src="assets/img/screenshot-2.jpg" alt="Dark mode"></td></tr>
+  <tr><td align="center"><img src="assets/img/screenshot-1.jpg" alt="Light mode"><br><small>Light mode</small></td><td align="center"><img src="assets/img/screenshot-2.jpg" alt="Dark mode"><br><small>Dark mode</small></td></tr>
+  <tr><td align="center" colspan="2"><a href="https://tecsmith.github.io/ts-jekyll-bs/">Theme Preview</a></td<</tr>
 </table>
 
 ## Installation
 
-> `TO DO`
+> `TO DO - Docs`
 
 ## Contents At-A-Glance
 
@@ -28,7 +29,6 @@ Refers to files within the `_layouts` directory, that define the markup for your
 
   - `base.html` &mdash; The base layout that lays the foundation for subsequent layouts. The derived layouts inject their
     contents into this file at the line that says ` {{ content }} ` and are linked to this file via *Front Matter* declaration `layout: base`.
-<!-- - `home.html` &mdash; The layout for your landing-page / home-page / index-page. [[More Info.](#home-layout)] -->
   - `page.html` &mdash; The layout for your documents that contain Front Matter, but are not posts.
   - `post.html` &mdash; The layout for your posts.
 
