@@ -15,6 +15,9 @@
 {%- if _nbl -%}{%- assign brand_link = false -%}{%- else -%}{%- assign brand_link = true -%}{%- endif -%}
 
 {%- if site.data.navbar.menu -%}
+  {%- assign brand_logo = site.data.globals.brand.logo -%}
+  {%- assign brand_name = site.data.globals.brand.name | default: site.title -%}
+  {%- if brand_name == "" -%}{%- assign brand_name = site.github.repository_name | default: "[Your brand here]" -%}{%- endif -%}
 <header class="{{ headerclass }}" id="header">
   <div class="{{ site.data.globals.navbarclass }}">
     <div class="container">
@@ -23,12 +26,11 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <{% if brand_link %}a{% else %}div{% endif %} class="navbar-brand" href="{{ '/' | absolute_url }}">
-          {% assign brand_logo = site.data.globals.brand.logo %}
-          {% for static_file in site.static_files %}{% if static_file.path == brand_logo %}
-          {% if brand_logo %}<img src="{{ brand_logo | absolute_url | append: debugTag }}" width="30" height="30" alt="">{% endif %}
-          {% endif %}{% endfor  %}
-          {% assign brand_name = site.data.globals.brand.name %}
-          {% if !brand_name %}{% assign brand_name = site.title | default: site.github.repository_name %}{% endif %}
+          {% if brand_logo %}
+            {% for static_file in site.static_files %}{% if static_file.path == brand_logo %}
+            <img src="{{ brand_logo | absolute_url | append: debugTag }}" width="30" height="30" alt="">{% endif %}
+            {% endfor  %}
+          {% endif %}
           {% if brand_name %}{{ brand_name }}{% endif %}
         </{% if brand_link %}a{% else %}div{% endif %}>
 
@@ -38,7 +40,7 @@
             {% for item in site.data.navbar.menu %}
               {% if item.items[0] == null %}
                 {%- comment -%}<!--
-                
+
                   ****************************
                   Single item
                   ****************************
@@ -56,7 +58,7 @@
                 </li>
               {% else %}
                 {%- comment -%}<!--
-                  
+
                   ****************************
                   Dropdown item
                   ****************************
@@ -76,7 +78,7 @@
                     {% for sub_item in item.items %}
                       {%- comment -%}<!--
                         ********** Sub_items **********
-                      -->{%- endcomment -%}                    
+                      -->{%- endcomment -%}
                       <li class="{% if forloop.first %} first{% endif%}{% if forloop.last %} last{% endif %}{% if forloop.length == 1 %} only{% endif %}">
                         {% if sub_item.title != "---" %}
                           <a href="{{ sub_item.url | absolute_url }}"
