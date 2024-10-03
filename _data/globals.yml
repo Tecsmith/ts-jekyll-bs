@@ -1,0 +1,6 @@
+debug: true
+brand:
+  name: ACME Co
+  logo: /favicon.svg
+copyright: 2024
+darkmode: true

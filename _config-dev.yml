@@ -1,0 +1,24 @@
+## ts-jekyll-bs Theme Preview
+
+title: "Your Awesome Co."
+description: "A Jekyll theme built on Vino Rodrigues' Bootstrap Dark 4 project."
+encoding: utf-8
+
+safe: true  # Like gh-pages :)
+
+sass:
+  # sass_dir: assets/css
+  sourcemap: development
+  style: full
+
+exclude:
+  - CODE_OF_CONDUCT.md
+  - LICENSE.md
+  - README.GH-PAGES.md
+  - README.md
+  - htaccess.txt
+  - readme-banner.svg
+#  - sitemap.xsl
+  - ts-jekyll-bs.gemspec
+  - assets/img/screenshot-1.jpg
+  - assets/img/screenshot-2.jpg

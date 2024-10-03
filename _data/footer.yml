@@ -1,0 +1,19 @@
+menu:
+  - title: Services
+    url: /
+    items:
+      - title: One
+        url: /
+        fa: wrench
+      - title: Two
+        url: /
+        fa: virus
+  - title: Resources
+    items:
+    - title: Knowledge Base
+      url: /
+      class: font-weight-bold
+      fa: book-open
+    - title: Three
+      fa: video
+      url: /

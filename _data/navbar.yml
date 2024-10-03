@@ -1,0 +1,6 @@
+# no_brand_link: false
+# contact_url: http://xxx.com
+menu:
+  - title: About
+    url: /
+    fa: question-circle
