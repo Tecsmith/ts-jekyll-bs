@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name     = "ts-jekyll-bs"
-  spec.version  = "0.1.0"
+  spec.version  = "0.1.1"
   spec.author   = "Vino Rodrigues"
 
   spec.summary  = "Default Tecsmith theme for Jekyll sites, i.e. Github pages :)"

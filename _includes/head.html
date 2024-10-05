@@ -3,8 +3,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- Made with <3 by Vino Rodrigues, https://github.com/vinorodrigues -->
-
   <title>{% if page.title %}{{ site.title | default: site.github.repository_name }} - {{ page.title }}{% else %}{{ site.title | default: site.github.repository_name }}{% endif %}</title>
 
 {% include seo-metadata.html %}
@@ -24,22 +22,18 @@
     {% when 1 %}
   <meta name="color-scheme" content="light dark">
   <!-- Bootstrap-Dark (4), https://github.com/vinorodrigues/bootstrap-dark -->
-  <link href="https://cdn.jsdelivr.net/gh/vinorodrigues/bootstrap-dark@0.6.1/dist/bootstrap-dark.min.css" rel="stylesheet" media="all" integrity="sha384-GrGBtUiVQd0B0YKF+fKYa7+UY5kc/9N8AvsG1+zcHqslLuITk8fKygUaYv6TnGQ9" crossorigin="anonymous">
+  <link rel="stylesheet" media="all" href="{{ site.data.meta.css.bs_dark.url }}" integrity="{{ site.data.meta.css.bs_dark.hash }}" crossorigin="anonymous">
     {% when 2 %}
   <meta name="color-scheme" content="dark">
   <!-- Bootstrap-Dark (4), https://github.com/vinorodrigues/bootstrap-dark -->
-  <link href="https://cdn.jsdelivr.net/gh/vinorodrigues/bootstrap-dark@0.6.1/dist/bootstrap-night.min.css" rel="stylesheet" media="all" integrity="sha384-ot7xT4oMaQskWl5bDTml5cnSaTEESdBQNiLcRbijNOw8JNI1PXCXsW+pVdWmKQn0" crossorigin="anonymous">
+  <link rel="stylesheet" media="all" href="{{ site.data.meta.css.bs_night.url }}" integrity="{{ site.data.meta.css.bs_night.hash }}" crossorigin="anonymous">
     {% else %}
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" media="all" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <!-- Bootstrap CSS, https://getbootstrap.com/docs/4.6 -->
+  <link rel="stylesheet" media="all" href="{{ site.data.meta.css.bs_origin.url }}" integrity="{{ site.data.meta.css.bs_origin.hash }}" crossorigin="anonymous">
   {% endcase %}
 
-  <!-- Font Awesome, https://fontawesome.com/v5/icons/ -->
-  {% if true %}
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" media="all" integrity="sha384-PPIZEGYM1v8zp5Py7UjFb79S58UeqCL9pYVnVPURKEqvioPROaVAJKKLzvH2rDnI" crossorigin="anonymous">
-  {% else %}
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" media="all" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-  {% endif %}
+  <!-- Font-Awesome, https://fontawesome.com/v5/icons/ -->
+  <link rel="stylesheet" media="all" href="{{ site.data.meta.css.fa_origin.url }}" integrity="{{ site.data.meta.css.fa_origin.hash }}" crossorigin="anonymous">
 
   <!-- This Site -->
   <link rel="stylesheet" href="{{'/assets/css/ts-jekyll-bs.css' | absolute_url | append: debugTag}}">
@@ -49,7 +43,7 @@
 {% endfor %}
 {% for extracsscontent in page.inline_css %}
   <style>
-{{ extracsscontent }}    
+{{ extracsscontent }}
   </style>
 {% endfor %}
 {% for extracssfile in layout.extra_css %}

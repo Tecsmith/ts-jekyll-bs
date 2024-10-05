@@ -4,7 +4,7 @@
 
 &nbsp;<br>&nbsp;
 
-A [**Jekyll**](https://jekyllrb.com/) Theme shaped arround:
+A [**Jekyll**](https://jekyllrb.com/) Theme shaped around:
 - [**Bootstrap** 4](https://github.com/twbs/bootstrap/tree/v4.6.2)
 - [**Bootsrap Dark** *(4)*](https://github.com/vinorodrigues/bootstrap-dark)
 - [**FontAwesome** 5](https://fontawesome.com/v5/icons/)
@@ -31,7 +31,6 @@ Refers to files within the `_layouts` directory, that define the markup for your
     contents into this file at the line that says ` {{ content }} ` and are linked to this file via *Front Matter* declaration `layout: base`.
   - `page.html` &mdash; The layout for your documents that contain Front Matter, but are not posts.
   - `post.html` &mdash; The layout for your posts.
-
 
 
 ## Developing with

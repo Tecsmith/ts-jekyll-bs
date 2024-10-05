@@ -4,10 +4,10 @@
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords | join: ', ' | escape }}">{% endif %}
   <!-- /Traditional metadata -->
 
-  {% comment %}
+  {%- comment -%}
   <!-- @See: https://ogp.me/ for "The Open Graph protocol" -->
   <!-- @See: https://www.kapwing.com/explore/og-image-template for `og:image` requirements -->
-  {% endcomment %}
+  {%- endcomment -%}
   <!-- Open Graph metadata -->
   <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | default: site.github.repository_name | escape }}{% endif %}">
   <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}">
@@ -23,21 +23,21 @@
   {% if page.tags %}{% for tag in page.tags %}<meta property="article:tag" content="{{ tag | escape }}">{% endfor %}{% endif %}
   <!-- /Open Graph metadata -->
 
-  {% comment %}
+  {%- comment -%}
   <!-- @See: https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started -->
-  {% endcomment %}
+  {%- endcomment -%}
   <!-- Twitter Card metadata -->
   <meta name="twitter:card" content="summary">
   <meta property="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
-  {% comment %}
+  {%- comment -%}
   <!-- @Todo: Add `twitter:site`=@username, or `twitter:creator`, based on config `twitter.username` values -->
-  {% endcomment %}
+  {%- endcomment -%}
   <!-- /Twitter Card metadata -->
 
-  {% comment %}
+  {%- comment -%}
   <!-- Google Search structured data markup -->
   <!-- ########## PARKED FOR NOW! ########## -->
   <!-- @See: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data -->
   <!-- @See: https://json-ld.org/ -->
   <!-- /Google Search structured data markup -->
-  {% endcomment %}
+  {%- endcomment -%}

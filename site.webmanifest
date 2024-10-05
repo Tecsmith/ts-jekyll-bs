@@ -8,7 +8,7 @@
   "name": "{{ site.title | default: site.github.repository_name | escape }}",
   "short_name": "{{ site.title | default: site.github.repository_name | escape }}",
   "icons": [
-{%- for static_file in site.static_files -%}        
+{%- for static_file in site.static_files -%}
   {%- if static_file.path == "/android-chrome-192x192.png" -%}
   {
     "src": "{{ '/android-chrome-192x192.png' | absolute_url | append: debugTag }}",
@@ -17,7 +17,7 @@
   }
   {%- endif -%}
   {%- if static_file.path contains "/android-chrome-192x192.png" and "/android-chrome-512x512.png" -%}
-    {% comment %} ### NEED A COMMA HERE ### {% endcomment %}
+    {%- comment -%} ### NEED A COMMA HERE ### {%- endcomment -%}
   ,
   {%- endif -%}
   {%- if static_file.path == "/android-chrome-512x512.png" -%}
