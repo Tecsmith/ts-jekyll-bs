@@ -6,7 +6,7 @@
 </defs>
 <style>
   .cbe { stroke: #111; } .txt { fill: #111; } #hdn { display: none; } .scbe { stroke: transparent; } .stxt { fill: transparent; }
-  @media (prefers-color-scheme: dark) { .txt { fill: #eee; } .cbe { stroke: #eee; } #hdn { display: initial; } .scbe { stroke: #111; } .stxt { fill: #111; } }
+  @media (prefers-color-scheme: dark) { .txt { fill: #eee; } .cbe { stroke: #111; } #hdn { display: initial; } .scbe { stroke: #eee; } .stxt { fill: #111; opacity: 0.8; } }
 </style>
 <g id="hdn" stroke-linecap="round" stroke-linejoin="round">
   <polygon class="scbe" stroke-width="6" fill-rule="nonzero" points="316 34.827 343.242 21.443 316 9.038 288.758 21.443"></polygon>
