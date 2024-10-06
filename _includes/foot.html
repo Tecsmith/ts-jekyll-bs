@@ -1,8 +1,19 @@
+{%- comment -%}<!-- ------------------------------------------------------------------------------------------ -->{%- endcomment -%}
+{%- comment -%}<!-- the following assign's can be removed once `jekyll-remote-theme` can port `_data` files :( -->{%- endcomment -%}
+{%- comment -%}<!-- ------------------------------------------------------------------------------------------ -->{%- endcomment -%}
+{%- assign __jq_origin_url = "https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" -%}
+{%- assign __jq_origin_hash = "sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" -%}
+{%- assign __pp_origin_url = "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" -%}
+{%- assign __pp_origin_hash = "sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" -%}
+{%- assign __bsjs_origin_url = "https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" -%}
+{%- assign __bsjs_origin_hash = "sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" -%}
+{%- comment -%}<!-- / end of `jekyll-remote-theme` hack ------------------------------------------------------ -->{%- endcomment -%}
+
 <!-- JQuery, Popper and Bootstrap JS -->
 <!-- JQuery, https://jquery.com/ -->
-<script src="{{ site.data.meta.js.jq_origin.url }}" integrity="{{ site.data.meta.js.jq_origin.hash }}" crossorigin="anonymous"></script>
-<script src="{{ site.data.meta.js.pp_origin.url }}" integrity="{{ site.data.meta.js.pp_origin.hash }}" crossorigin="anonymous"></script>
-<script src="{{ site.data.meta.js.bs_origin.url }}" integrity="{{ site.data.meta.js.bs_origin.hash }}" crossorigin="anonymous"></script>
+<script src="{{ site.data.globals.js.jq_origin.url | default: __jq_origin_url }}" integrity="{{ site.data.globals.js.jq_origin.hash | default: __jq_origin_hash }}" crossorigin="anonymous"></script>
+<script src="{{ site.data.globals.js.pp_origin.url | default: __pp_origin_url }}" integrity="{{ site.data.globals.js.pp_origin.hash | default: __pp_origin_hash }}" crossorigin="anonymous"></script>
+<script src="{{ site.data.globals.js.bs_origin.url | default: __bsjs_origin_url }}" integrity="{{ site.data.globals.js.bs_origin.hash | default: __bsjs_origin_hash }}" crossorigin="anonymous"></script>
 
 <!-- Site JS -->
 <script src="{{ '/assets/js/ts-jekyll-bs.js' | absolute_url | append: debugTag }}"></script>

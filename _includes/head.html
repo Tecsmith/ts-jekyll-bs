@@ -1,3 +1,16 @@
+{%- comment -%}<!-- ------------------------------------------------------------------------------------------ -->{%- endcomment -%}
+{%- comment -%}<!-- the following assign's can be removed once `jekyll-remote-theme` can port `_data` files :( -->{%- endcomment -%}
+{%- comment -%}<!-- ------------------------------------------------------------------------------------------ -->{%- endcomment -%}
+{%- assign __bs_dark_url = "https://cdn.jsdelivr.net/gh/vinorodrigues/bootstrap-dark@0.6.1/dist/bootstrap-dark.min.css" -%}
+{%- assign __bs_dark_hash = "sha384-GrGBtUiVQd0B0YKF+fKYa7+UY5kc/9N8AvsG1+zcHqslLuITk8fKygUaYv6TnGQ9" -%}
+{%- assign __bs_night_url = "https://cdn.jsdelivr.net/gh/vinorodrigues/bootstrap-dark@0.6.1/dist/bootstrap-night.min.css" -%}
+{%- assign __bs_night_hash = "sha384-ot7xT4oMaQskWl5bDTml5cnSaTEESdBQNiLcRbijNOw8JNI1PXCXsW+pVdWmKQn0" -%}
+{%- assign __bs_origin_url = "https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" -%}
+{%- assign __bs_origin_hash = "sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" -%}
+{%- assign __fa_origin_url = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" -%}
+{%- assign __fa_origin_hash = "sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" -%}
+{%- comment -%}<!-- / end of `jekyll-remote-theme` hack ------------------------------------------------------ -->{%- endcomment -%}
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,18 +35,18 @@
     {% when 1 %}
   <meta name="color-scheme" content="light dark">
   <!-- Bootstrap-Dark (4), https://github.com/vinorodrigues/bootstrap-dark -->
-  <link rel="stylesheet" media="all" href="{{ site.data.meta.css.bs_dark.url }}" integrity="{{ site.data.meta.css.bs_dark.hash }}" crossorigin="anonymous">
+  <link rel="stylesheet" media="all" href="{{ site.data.globals.css.bs_dark.url | default: __bs_dark_url }}" integrity="{{ site.data.globals.css.bs_dark.hash | default: __bs_dark_hash }}" crossorigin="anonymous">
     {% when 2 %}
   <meta name="color-scheme" content="dark">
   <!-- Bootstrap-Dark (4), https://github.com/vinorodrigues/bootstrap-dark -->
-  <link rel="stylesheet" media="all" href="{{ site.data.meta.css.bs_night.url }}" integrity="{{ site.data.meta.css.bs_night.hash }}" crossorigin="anonymous">
+  <link rel="stylesheet" media="all" href="{{ site.data.globals.css.bs_night.url | default: __bs_night_url }}" integrity="{{ site.data.globals.css.bs_night.hash | default: __bs_night_hash }}" crossorigin="anonymous">
     {% else %}
   <!-- Bootstrap CSS, https://getbootstrap.com/docs/4.6 -->
-  <link rel="stylesheet" media="all" href="{{ site.data.meta.css.bs_origin.url }}" integrity="{{ site.data.meta.css.bs_origin.hash }}" crossorigin="anonymous">
+  <link rel="stylesheet" media="all" href="{{ site.data.globals.css.bs_origin.url | default: __bs_origin_url }}" integrity="{{ site.data.globals.css.bs_origin.hash | default: __bs_origin_hash }}" crossorigin="anonymous">
   {% endcase %}
 
   <!-- Font-Awesome, https://fontawesome.com/v5/icons/ -->
-  <link rel="stylesheet" media="all" href="{{ site.data.meta.css.fa_origin.url }}" integrity="{{ site.data.meta.css.fa_origin.hash }}" crossorigin="anonymous">
+  <link rel="stylesheet" media="all" href="{{ site.data.globals.css.fa_origin.url | default: __fa_origin_url }}" integrity="{{ site.data.globals.css.fa_origin.hash | default: __fa_origin_hash }}" crossorigin="anonymous">
 
   <!-- This Site -->
   <link rel="stylesheet" href="{{'/assets/css/ts-jekyll-bs.css' | absolute_url | append: debugTag}}">
